@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>{{ title }} - CSGOProTracker</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styling.css') }}">
+    </head>
+    <body style="text-align: center;">
+       <a href="{{ url_for('index')}}"  id="header"> <h1> CSGOProTracker</h1> </a>
+        <form action="{{  url_for('searchPlayer')  }}" method="post">
+            <p  id="matchtext">Search Player: </p>
+            <input type='text' id='searchname' name='searchname'><br>
+            <input type='submit' value='Submit'>
+        </form>
+        <div id="wrapper">
+            <div id="eufpl">
+                    <h1 style=color:white> EU FPL </h1>
+                    <h1>
+                        {% for names, value in namesMatch %}
+                            <p>
+                                <a id="matchtext" href= "{{ url_for('match' ,matchid=value) }}"> {{ names[0] }} vs {{ names[1] }} </a>
+                            </p>
+                        {% endfor %}
+                    </h1>
+            </div>
+            <div id="nafpl">
+                    <h1 style=color:white> NA FPL</h1>
+                    <h1>
+                        {% for names, value in namesMatchNA %}
+                        <p>
+                            <a id="matchtext" href= "{{ url_for('match' ,matchid=value) }}"> {{ names[0] }} vs {{ names[1] }} </a>
+                        </p>
+                    {% endfor %}
+                    </h1>
+            </div>
+        </div>
+    </body>
+</html>
