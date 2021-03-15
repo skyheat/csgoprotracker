@@ -24,7 +24,6 @@ match_details = faceit_data.match_details("1-7b3783a4-a7ca-40ae-97aa-c3153ee53ed
 @app.route("/")
 @app.route("/index")
 def index():
-    user = {'username': 'jun'}
     euhub_matches = faceit_data.hub_matches("74caad23-077b-4ef3-8b1d-c6a2254dfa75", "past", 0, 20)
     nahub_matches = faceit_data.hub_matches("748cf78c-be73-4eb9-b131-21552f2f8b75", "past", 0, 20)
     #print(match_details['match_id'])
@@ -56,7 +55,7 @@ def index():
         else:
             continue
 
-    return render_template('index.html', title='Home', user=user, namesMatch=zip(teamNames, matches), namesMatchNA=zip(teamNamesNA, matchesNA))
+    return render_template('index.html', title='Home', namesMatch=zip(teamNames, matches), namesMatchNA=zip(teamNamesNA, matchesNA))
 
 @app.route("/search/", methods=["POST"])
 def searchPlayer():
@@ -78,7 +77,6 @@ def searchPlayer():
 @app.route("/match/<matchid>")
 def match(matchid):
     #print(matchid)
-    user = {'username': 'jun'}
     team1 = []
     team2 = []
     team1ids = []
@@ -137,7 +135,7 @@ def match(matchid):
     matchmap = {"matchmap" : matchmap}
     
 
-    return render_template("matchpage.html", title='Match Page', user=user, matchid=matchid, team1=team1, team2=team2, matchmap=matchmap, demourl=demourl, match_score=match_score,  playername_stats1 = zip(team1stats, team1ids), playername_stats2 = zip(team2stats, team2ids), team1name=team1name, team2name=team2name)
+    return render_template("matchpage.html", title='Match Page', matchid=matchid, team1=team1, team2=team2, matchmap=matchmap, demourl=demourl, match_score=match_score,  playername_stats1 = zip(team1stats, team1ids), playername_stats2 = zip(team2stats, team2ids), team1name=team1name, team2name=team2name)
 
 @app.route("/help")
 def help():
@@ -146,7 +144,6 @@ def help():
 @app.route("/player/<playerid>")
 def player(playerid):
     #print(playerid)
-    user = {'username': 'jun'}
     playername = faceit_data.player_id_details(playerid)['nickname']
     #print(playername)
     playermatches = faceit_data.player_matches(playerid, "csgo", None, None, 0, 20)
@@ -173,4 +170,4 @@ def player(playerid):
     #playerid = {'playerid' : playerid}
     #matches = {'matches' : matches}
     
-    return render_template("playerpage.html", title='Player Page', user=user, playername=playername, match_map=zip(matches, matchmaps), message=message, count=count)
+    return render_template("playerpage.html", title='Player Page', playername=playername, match_map=zip(matches, matchmaps), message=message, count=count)
