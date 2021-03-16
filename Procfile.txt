@@ -1,1 +1,1 @@
-gunicorn csgoprotracker:app
+web: gunicorn csgoprotracker:app
