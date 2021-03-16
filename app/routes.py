@@ -14,8 +14,6 @@ from flask import redirect
 faceit_data = FaceitData(config.api_key)
 #hub_details = faceit_data.hub_details("74caad23-077b-4ef3-8b1d-c6a2254dfa75")
 match_details = faceit_data.match_details("1-7b3783a4-a7ca-40ae-97aa-c3153ee53ed9")
-#1-7b3783a4-a7ca-40ae-97aa-c3153ee53ed9
-#1-1034fae1-4092-4c34-a16a-e6c596b0fb42
 #FPL NA
 #748cf78c-be73-4eb9-b131-21552f2f8b75
 #FPL EU
