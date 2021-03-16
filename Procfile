@@ -1,1 +1,1 @@
-web: Flask csgoprotracker:app
+web: flask gunicorn csgoprotracker:app
