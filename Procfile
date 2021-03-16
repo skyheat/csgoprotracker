@@ -1,1 +1,1 @@
-web: gunicorn csgoprotracker:app
+web: gunicorn csgoprotracker:app  --preload -b 0.0.0.0:5000 
