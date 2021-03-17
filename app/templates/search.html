@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>{{ title }} -  CSGOProTracker</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styling.css') }}">
+    </head>
+    <body>
+        <a href="{{ url_for('index')}}"  id="header"> <h1> CSGOProTracker</h1> </a>
+        <div id="wrapper">
+            <div id="match">
+                <h1>Search for '{{playername}}' </h1>
+                {% for value in playerarray %}
+                    <a href= "{{ url_for('player', playerid=value['player_id']) }}" id="matchtext"> {{value['nickname']}} </a>
+                    {% if value['verified'] %}
+                        (Verified as {{value['nickname']}})
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

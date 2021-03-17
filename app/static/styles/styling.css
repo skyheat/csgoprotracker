@@ -1,0 +1,74 @@
+#eufpl  {
+  width: 50%;
+ /* background-color: #272E6F; */
+  background-color: #121212;
+  justify-content: center;
+  float: left;
+  margin-right: 2%;
+}
+
+#nafpl  {
+  width: 50%;
+ /* background-color: #F99D1C; */
+  background-color: #121212;
+  justify-content: center;
+  float: left;
+  margin-left: 2%;
+}
+
+#matchtext  {
+  color: white;
+  text-decoration: none;
+}
+
+#header {
+  color: white;
+  text-decoration: none;
+  font-family: 'trial';
+  text-align: left;
+}
+
+#match  {
+  width: 90%;
+  color: white;
+  text-decoration: none;
+ /* background-color: #272E6F; */
+  background-color: #121212;
+  justify-content: center;
+  padding-bottom: 20%;
+}
+
+table {
+  border: 1px solid black;
+  table-layout: fixed;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid black;
+  width: 50%;
+  overflow: hidden;
+}
+
+a:hover {
+  font-size: larger;
+}
+
+#wrapper  {
+  display: flex;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  margin: auto;
+}
+
+body{
+  background-color:#292929;
+  color:white;
+}
+
+@font-face  {
+  font-family:  'trial';
+  src: url("/app/static/fonts/csreg2.woff2");
+}

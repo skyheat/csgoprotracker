@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>{{ title }} -  CSGOProTracker</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styling.css') }}">
+    </head>
+    <body style="text-align: center;">
+        <a href="{{ url_for('index')}}"  id="header"> <h1> CSGOProTracker</h1> </a>
+        <div id='wrapper'>
+            <div id='match'>
+                <h1 ><a href="{{ demourl[0] }}"  id="matchtext">Download Demo</a></h1>
+                <p><a href="{{ url_for('help')}}"  id="matchtext">How do I use this?</a></p>
+                <h1>Score was {{match_score}} </h1>
+                <h1>Map: {{ matchmap.matchmap[0] }}</h1>
+                
+                <p> {{ team1name }}</p>
+                <table class="fixed">
+                    <!--<col span='12' style="width: 5%"> -->
+                    <tr>
+                        <th>Player</th>
+                        <th>Kills</th>
+                        <th>Assists</th>
+                        <th>Deaths</th>
+                        <th>K/R Ratio</th>
+                        <th>K/D Ratio</th>
+                        <th>Headshots</th>
+                        <th>Headshot %</th>
+                        <th>MVPs</th>
+                        <th>Triple Kills</th>
+                        <th>Quadro Kills</th>
+                        <th>Penta Kills</th>
+                    </tr>
+                    {% for stat, ids in playername_stats1 %}
+                    <tr>
+                        
+                            {% for i in stat %}
+                                {% if i == 'Player' %}
+                                    <td><p> <a href= "{{ url_for('player' ,playerid=ids) }}"  id="matchtext"> {{stat[i]}} </a></p> </td>
+                                {% else %}
+                                    <td><span> {{stat[i]}}</span></td>
+                                {% endif %}
+                            {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                <p> {{ team2name }}</p>
+                <table>
+                    <!--<col span='12' style="width: 5%"> -->
+                    <tr>
+                        <th>Player</th>
+                        <th>Kills</th>
+                        <th>Assists</th>
+                        <th>Deaths</th>
+                        <th>K/R Ratio</th>
+                        <th>K/D Ratio</th>
+                        <th>Headshots</th>
+                        <th>Headshot %</th>
+                        <th>MVPs</th>
+                        <th>Triple Kills</th>
+                        <th>Quadro Kills</th>
+                        <th>Penta Kills</th>
+                    </tr>
+                    {% for stat, ids in playername_stats2 %}
+                    <tr>
+                            {% for i in stat %}
+                                {% if i == 'Player' %}
+                                    <td><p> <a href= "{{ url_for('player' ,playerid=ids) }}"  id="matchtext"> {{stat[i]}} </a> </p></td>
+                                {% else %}
+                                    <td><span> {{stat[i]}}</span></td>
+                                {% endif %}
+                            {% endfor%}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
