@@ -1,5 +1,4 @@
 import requests
-import config
 import os
 
 from app import app
