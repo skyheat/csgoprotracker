@@ -10,7 +10,7 @@ from flask import redirect
 
 #apikey
 apikey = os.getenv("API_KEY", "optional-default")
-faceit_data = FaceitData(apikey)
+faceit_data = FaceitData("0b0395d8-a3ad-404c-a3ef-80fd9c64b79b")
 #hub_details = faceit_data.hub_details("74caad23-077b-4ef3-8b1d-c6a2254dfa75")
 #FPL NA
 #748cf78c-be73-4eb9-b131-21552f2f8b75
@@ -120,6 +120,7 @@ def player(playerid):
     playermatches = faceit_data.player_matches(playerid, "csgo", None, None, 0, 20)
     matches = []
     matchmaps = []
+    matchresult = []
     count = 0
     for i in playermatches['items']:
         if(i['competition_id'] == "74caad23-077b-4ef3-8b1d-c6a2254dfa75" or i['competition_id'] == "748cf78c-be73-4eb9-b131-21552f2f8b75"):
@@ -127,9 +128,25 @@ def player(playerid):
                 match_details = faceit_data.match_details(i['match_id'])
                 matchmaps.append(match_details['voting']['map']['pick'])
                 matches.append(i['match_id'])
+                #print(i['results']['winner'])
+                #print(i['teams']['faction1']['players'][0]['player_id'])
+                for c in range(5):
+                    #print(c)
+                    if(playerid == i['teams']['faction1']['players'][c]['player_id']):
+                        team = "faction1"
+                for c in range(5):
+                    #print(c)
+                    if(playerid == i['teams']['faction2']['players'][c]['player_id']):
+                        team = 'faction2'
+                #print(team)
+                #print("winner" + i['results']['winner'])
+                if(team == i['results']['winner']):
+                    matchresult.append("Won")
+                else:
+                    matchresult.append("Loss")
                 count = count + 1
             except KeyError:
                 continue
     message = "User has no matches on FPL Pro Hubs"
     
-    return render_template("playerpage.html", title='Player Page', playername=playername, match_map=zip(matches, matchmaps), message=message, count=count)
+    return render_template("playerpage.html", title='Player Page', playername=playername, match_map_result=zip(matches, matchmaps, matchresult), message=message, count=count)
