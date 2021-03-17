@@ -10,7 +10,7 @@ from flask import redirect
 
 #apikey
 apikey = os.getenv("API_KEY", "optional-default")
-faceit_data = FaceitData("0b0395d8-a3ad-404c-a3ef-80fd9c64b79b")
+faceit_data = FaceitData(apikey)
 #hub_details = faceit_data.hub_details("74caad23-077b-4ef3-8b1d-c6a2254dfa75")
 #FPL NA
 #748cf78c-be73-4eb9-b131-21552f2f8b75
