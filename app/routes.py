@@ -1,5 +1,6 @@
 import requests
 import config
+import os
 
 from app import app
 from flask import render_template
@@ -11,7 +12,8 @@ from flask import redirect
 #Goes through every 'pro league hub', maybe look at esea later?
 
 #apikey
-faceit_data = FaceitData(config.api_key)
+apikey = os.getenv("API_KEY", "optional-default")
+faceit_data = FaceitData(api_key)
 #hub_details = faceit_data.hub_details("74caad23-077b-4ef3-8b1d-c6a2254dfa75")
 match_details = faceit_data.match_details("1-7b3783a4-a7ca-40ae-97aa-c3153ee53ed9")
 #FPL NA
@@ -139,6 +141,7 @@ def match(matchid):
 def help():
     
     return render_template("help.html", title="Help")
+    
 @app.route("/player/<playerid>")
 def player(playerid):
     #print(playerid)
