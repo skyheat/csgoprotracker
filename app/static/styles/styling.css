@@ -28,6 +28,15 @@
   text-align: left;
 }
 
+#faq {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-family: 'trial';
+  text-align: right;
+}
+
+
 #match  {
   width: 90%;
   color: white;
@@ -51,7 +60,7 @@ td {
   overflow: hidden;
 }
 
-a:hover {
+#wrapper a:hover {
   font-size: larger;
 }
 

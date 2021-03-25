@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>{{ title }} -  CSGOProTracker</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styling.css') }}">
+    </head>
+    <body>
+        <a href="{{ url_for('index')}}"  id="header"> <h1> CSGOProTracker</h1> </a>
+        <div id="wrapper">
+            <div id="match">
+                <h1>FAQ</h1>
+                <h2>Why did you make this website?</h2>
+                <p>Like many people, I find watching demos of professional players helpful as I learn a lot from watching them play. For example, I can learn how to hold a particular site on a particular map or new angles which I can use to have an advantage.</p>
+                <h2>Can't I just go to the FPL hub and player pages to look at all their matches?</h2>
+                <p>You definitely can. I originally made this website for myself to display the most recent FPL matches from the NA and EU Hubs (ignoring cancelled matches) while also only pulling matches that players play in these hubs rather than the whole of Faceit. </p>
+                <h2>How long did it take you to make this?</h2>
+                <p>Around a few days, consisting of figuring out the FaceitAPI, programming and deploying onto Heroku.</p>
+                <h2>Why does the website look terrible?</h2>
+                <p>Functionality over style is my main concern at this moment and I am currently super busy but I will work on the styling when I have the time to.</p>
+                <h2>I found a bug or I have a suggestion!</h2>
+                <p>Feel free to head over to the 
+                    <a href="https://github.com/skyheat/csgoprotracker">GitHub</a> 
+                    page to report any bugs or give any suggestions. </p>
+            </div>
+        </div>
+    </body>
+</html>

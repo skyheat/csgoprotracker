@@ -113,6 +113,11 @@ def match(matchid):
 def help():
     
     return render_template("help.html", title="Help")
+
+@app.route("/faq")
+def faq():
+
+    return render_template("faq.html", title="FAQ")
     
 @app.route("/player/<playerid>")
 def player(playerid):
